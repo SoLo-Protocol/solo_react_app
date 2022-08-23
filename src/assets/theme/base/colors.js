@@ -24,6 +24,11 @@ export default {
     default: "#f0f2f5",
   },
 
+  soLoBg: {
+    main: "#050E18",
+    focus: "#050E18",
+  },
+
   text: {
     main: "#7b809a",
     focus: "#7b809a",
@@ -36,6 +41,26 @@ export default {
   white: {
     main: "#ffffff",
     focus: "#ffffff",
+  },
+
+  pink: {
+    main: "#FF1B85",
+    focus: "#FF1B85",
+  },
+
+  turquoise: {
+    main: "#1beabd",
+    focus: "#1beabd",
+  },
+
+  blue: {
+    main: "#10CFFF",
+    focus: "#10CFFF",
+  },
+
+  purple: {
+    main: "#9F10FF",
+    focus: "#9F10FF",
   },
 
   black: {
@@ -101,7 +126,10 @@ export default {
       main: "#EC407A",
       state: "#D81B60",
     },
-
+    soLoBg: {
+      main: "#050E18",
+      state: "#050E18",
+    },
     secondary: {
       main: "#747b8a",
       state: "#495361",

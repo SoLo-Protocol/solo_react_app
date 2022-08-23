@@ -47,6 +47,8 @@ import AboutUs from "layouts/pages/landing-pages/about-us";
 import ContactUs from "layouts/pages/landing-pages/contact-us";
 import Author from "layouts/pages/landing-pages/author";
 import SignIn from "layouts/pages/authentication/sign-in";
+// SoLo pages
+import CreditScore from "pages/SoLo/CreditScore";
 
 // Sections
 import PageHeaders from "layouts/sections/page-sections/page-headers";
@@ -82,6 +84,11 @@ const routes = [
             name: "about us",
             route: "/pages/landing-pages/about-us",
             component: <AboutUs />,
+          },
+          {
+            name: "credit score",
+            route: "/pages/solo/credit-score",
+            component: <CreditScore />,
           },
           {
             name: "contact us",
