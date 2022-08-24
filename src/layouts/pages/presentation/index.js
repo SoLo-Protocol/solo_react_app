@@ -15,11 +15,11 @@ Coded by www.creative-tim.com
 
 // Material Kit 2 React pages
 // import Presentation from "pages/Presentation";
-// import Presentation from "pages/Presentation";
-import CreditScore from "pages/SoLo/CreditScore";
+import Presentation from "pages/Presentation";
+// import CreditScore from "pages/SoLo/CreditScore";
 // import CreditScore from "src/pages/SoLo/CreditScore";
 
 export default function PresentationPage() {
-  // return <Presentation />;
-  return <CreditScore />;
+  return <Presentation />;
+  // return <CreditScore />;
 }

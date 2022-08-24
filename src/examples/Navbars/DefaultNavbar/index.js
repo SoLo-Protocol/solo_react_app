@@ -493,7 +493,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
               (action.type === "internal" ? (
                 <MKButton
                   component={Link}
-                  to={action.route}
+                  href={action.route}
                   variant={
                     action.color === "white" || action.color === "default"
                       ? "contained"

@@ -54,7 +54,7 @@ import routes from "soloRoutes";
 
 // Images
 import bgImage from "assets/images/bg-sign-in-basic.jpeg";
-import { Typography } from "@mui/material";
+// import { Typography } from "@mui/material";
 
 function CreditScore() {
   // const [rememberMe, setRememberMe] = useState(false);
@@ -96,7 +96,7 @@ function CreditScore() {
         action={{
           type: "external",
           route: "https://www.soulloan.io",
-          label: "sign up",
+          label: "Connect Wallet",
           color: "info",
         }}
         transparent
@@ -135,21 +135,29 @@ function CreditScore() {
                 mb={1}
                 textAlign="center"
               >
-                <MKTypography variant="h4" fontWeight="medium" color="white" mt={1}>
+                <MKTypography variant="h4" fontWeight="normal" color="white" mt={1}>
                   Your SoLo Score
                 </MKTypography>
-                {/* <Grid container spacing={3} justifyContent="center" sx={{ mt: 1, mb: 2 }}> */}
-                <MKTypography variant="h3" fontWeight="medium" color="white" mt={1}>
-                  {/* {soloScore} */}
-                  {loading ? <Typography>ヽ(ヅ)ノ</Typography> : <Typography>{output.score}</Typography>}
-                </MKTypography>
-                {/* </Grid> */}
+
+                {loading ?
+                  <MKTypography variant="h3" fontWeight="medium" color="white" mt={1}>ヽ(ヅ)ノ</MKTypography>
+                  :
+                  <MKTypography variant="h3" fontWeight="medium" color="white" mt={1}>{output.score * 10}.00</MKTypography>}
+
               </SoLoMKBox>
-              <MKBox pt={4} pb={3} px={3} sx={{ display: 'flex', justifyContent: 'center', alignContent: 'center' }}>
+              <MKBox pt={4} pb={3} px={3} sx={{ display: 'flex', flexDirection: "column", justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
                 {loading ? <CircularProgress color="turquoise" /> :
-                  <MKTypography sx={{ alignSelf: 'center' }}>
-                    You will be able to borrow up to £{output.amount}.00 through SoLo
-                  </MKTypography>
+                  <>
+                    <MKTypography>
+                      You will be able to borrow up to
+                    </MKTypography>
+                    <MKTypography variant="h4" fontWeight='bold'>
+                      £{output.amount}.00
+                    </MKTypography>
+                    <MKTypography>
+                      with SoLo
+                    </MKTypography>
+                  </>
                 }
                 {/* <MKBox component="form" role="form">
                   <MKBox mb={2}>
