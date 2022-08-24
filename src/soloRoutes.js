@@ -88,7 +88,7 @@ const routes = [
           },
           {
             name: "credit score",
-            route: "/pages/solo/credit-score",
+            route: "/",
             component: <CreditScore />,
           },
           {
