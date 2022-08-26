@@ -142,7 +142,7 @@ function CreditScore() {
                 {loading ?
                   <MKTypography variant="h3" fontWeight="medium" color="white" mt={1}>ヽ(ヅ)ノ</MKTypography>
                   :
-                  <MKTypography variant="h3" fontWeight="medium" color="white" mt={1}>{output.score * 10}.00</MKTypography>}
+                  <MKTypography variant="h3" fontWeight="medium" color="white" mt={1}>{output.score}</MKTypography>}
 
               </SoLoMKBox>
               <MKBox pt={4} pb={3} px={3} sx={{ display: 'flex', flexDirection: "column", justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
@@ -152,7 +152,7 @@ function CreditScore() {
                       You will be able to borrow up to
                     </MKTypography>
                     <MKTypography variant="h4" fontWeight='bold'>
-                      £{output.amount}.00
+                      £{output.amount}
                     </MKTypography>
                     <MKTypography>
                       with SoLo
