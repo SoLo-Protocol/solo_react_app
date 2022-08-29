@@ -41,8 +41,8 @@ import CircularProgress from '@mui/material/CircularProgress';
 import MKBox from "components/MKBox";
 import SoLoMKBox from "components/SoLoMKBox";
 import MKTypography from "components/MKTypography";
-// import MKInput from "components/MKInput";
-// import MKButton from "components/MKButton";
+import MKInput from "components/MKInput";
+import MKButton from "components/MKButton";
 
 
 // Material Kit 2 React example components
@@ -61,6 +61,18 @@ function CreditScore() {
   // const [soloScore] = useState(8.6);
   const [output, setOutput] = useState({ 'score': 'n/a', 'amount': "n/a" });
   const [loading, setLoading] = useState(true);
+  const [address, setAddress] = useState('');
+
+  const handleChange = event => {
+    setAddress(event.target.value);
+    // console.log('value is:', event.target.value);
+  };
+
+  const handleEmail = (ad) => {
+    console.log(ad)
+    setAddress("")
+
+  }
 
   // API call to setSoloScore
   const baseLink = "https://solo100.herokuapp.com/score";
@@ -142,7 +154,7 @@ function CreditScore() {
                 {loading ?
                   <MKTypography variant="h3" fontWeight="medium" color="white" mt={1}>ヽ(ヅ)ノ</MKTypography>
                   :
-                  <MKTypography variant="h3" fontWeight="medium" color="white" mt={1}>{output.score}</MKTypography>}
+                  <MKTypography variant="h3" fontWeight="medium" color="white" mt={1}>{output.score}/1000</MKTypography>}
 
               </SoLoMKBox>
               <MKBox pt={4} pb={3} px={3} sx={{ display: 'flex', flexDirection: "column", justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
@@ -157,49 +169,19 @@ function CreditScore() {
                     <MKTypography>
                       with SoLo
                     </MKTypography>
+                    <MKBox mt={4} component="form" role="form">
+                      <MKBox mb={2}>
+                        <MKInput type="email" label="Email" onChange={handleChange} fullWidth />
+                      </MKBox>
+
+                      <MKBox mt={0} mb={0}>
+                        <MKButton onClick={() => handleEmail(address)} variant="gradient" color="info" fullWidth>
+                          stay in the loop
+                        </MKButton>
+                      </MKBox>
+                    </MKBox>
                   </>
                 }
-                {/* <MKBox component="form" role="form">
-                  <MKBox mb={2}>
-                    <MKInput type="email" label="Email" fullWidth />
-                  </MKBox>
-                  <MKBox mb={2}>
-                    <MKInput type="password" label="Password" fullWidth />
-                  </MKBox>
-                  <MKBox display="flex" alignItems="center" ml={-1}>
-                    <Switch checked={rememberMe} onChange={handleSetRememberMe} />
-                    <MKTypography
-                      variant="button"
-                      fontWeight="regular"
-                      color="text"
-                      onClick={handleSetRememberMe}
-                      sx={{ cursor: "pointer", userSelect: "none", ml: -1 }}
-                    >
-                      &nbsp;&nbsp;Remember me
-                    </MKTypography>
-                  </MKBox>
-                  <MKBox mt={4} mb={1}>
-                    <MKButton variant="gradient" color="info" fullWidth>
-                      sign in
-                    </MKButton>
-                  </MKBox>
-                  <MKBox mt={3} mb={1} textAlign="center">
-                    <MKTypography variant="button" color="text">
-                      Don&apos;t have an account?{" "}
-                      <MKTypography
-                        component={Link}
-                        to="/authentication/sign-up/cover"
-                        variant="button"
-                        color="info"
-                        fontWeight="medium"
-                        textGradient
-                      >
-                        Sign up
-                      </MKTypography>
-                    </MKTypography>
-                  </MKBox>
-                </MKBox> */}
-
               </MKBox>
             </Card>
           </Grid>

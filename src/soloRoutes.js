@@ -44,12 +44,12 @@ import Icon from "@mui/material/Icon";
 import TwitterIcon from "@mui/icons-material/Twitter";
 
 // Pages
-import AboutUs from "layouts/pages/landing-pages/about-us";
-import ContactUs from "layouts/pages/landing-pages/contact-us";
-import Author from "layouts/pages/landing-pages/author";
-import SignIn from "layouts/pages/authentication/sign-in";
+// import AboutUs from "layouts/pages/landing-pages/about-us";
+// import ContactUs from "layouts/pages/landing-pages/contact-us";
+// import Author from "layouts/pages/landing-pages/author";
+// import SignIn from "layouts/pages/authentication/sign-in";
 // SoLo pages
-import CreditScore from "pages/SoLo/CreditScore";
+// import CreditScore from "pages/SoLo/CreditScore";
 
 // Sections
 // import PageHeaders from "layouts/sections/page-sections/page-headers";
@@ -78,41 +78,41 @@ const routes = [
     columns: 1,
     rowsPerColumn: 2,
     collapse: [
-      {
-        name: "landing pages",
-        collapse: [
-          {
-            name: "about us",
-            route: "/pages/landing-pages/about-us",
-            component: <AboutUs />,
-          },
-          {
-            name: "credit score",
-            route: "/pages/solo/credit-score",
-            component: <CreditScore />,
-          },
-          {
-            name: "contact us",
-            route: "/pages/landing-pages/contact-us",
-            component: <ContactUs />,
-          },
-          {
-            name: "author",
-            route: "/pages/landing-pages/author",
-            component: <Author />,
-          },
-        ],
-      },
-      {
-        name: "account",
-        collapse: [
-          {
-            name: "sign in",
-            route: "/pages/authentication/sign-in",
-            component: <SignIn />,
-          },
-        ],
-      },
+      // {
+      //   name: "landing pages",
+      //   collapse: [
+      //     {
+      //       name: "about us",
+      //       route: "/pages/landing-pages/about-us",
+      //       component: <AboutUs />,
+      //     },
+      //     {
+      //       name: "credit score",
+      //       route: "/pages/solo/credit-score",
+      //       component: <CreditScore />,
+      //     },
+      //     {
+      //       name: "contact us",
+      //       route: "/pages/landing-pages/contact-us",
+      //       component: <ContactUs />,
+      //     },
+      //     {
+      //       name: "author",
+      //       route: "/pages/landing-pages/author",
+      //       component: <Author />,
+      //     },
+      //   ],
+      // },
+      // {
+      //   name: "account",
+      //   collapse: [
+      //     {
+      //       name: "sign in",
+      //       route: "/pages/authentication/sign-in",
+      //       component: <SignIn />,
+      //     },
+      //   ],
+      // },
     ],
   },
 
@@ -125,21 +125,21 @@ const routes = [
         description: "SoLo’s Under-Collateralized Loans Can Bolster Web3 Adoption",
         href: "https://cryptomode.com/brother-can-you-spare-a-dime-how-solos-under-collateralized-loans-can-bolster-web3-adoption/",
       },
-      {
-        name: "Article 2",
-        description: "See our colors, icons and typography",
-        href: "https://www.creative-tim.com/learning-lab/react/colors/material-kit/",
-      },
-      {
-        name: "Article 3",
-        description: "Explore our collection of fully designed components",
-        href: "https://www.creative-tim.com/learning-lab/react/alerts/material-kit/",
-      },
-      {
-        name: "Article 4",
-        description: "Check how you can integrate our plugins",
-        href: "https://www.creative-tim.com/learning-lab/react/datepicker/material-kit/",
-      },
+      // {
+      //   name: "Article 2",
+      //   description: "See our colors, icons and typography",
+      //   href: "https://www.creative-tim.com/learning-lab/react/colors/material-kit/",
+      // },
+      // {
+      //   name: "Article 3",
+      //   description: "Explore our collection of fully designed components",
+      //   href: "https://www.creative-tim.com/learning-lab/react/alerts/material-kit/",
+      // },
+      // {
+      //   name: "Article 4",
+      //   description: "Check how you can integrate our plugins",
+      //   href: "https://www.creative-tim.com/learning-lab/react/datepicker/material-kit/",
+      // },
     ],
   },
   {

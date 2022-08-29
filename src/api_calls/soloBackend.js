@@ -6,7 +6,7 @@
 const baseLink = "https://api.namefake.com/";
 
 const requestHeaders = new Headers();
-requestHeaders.append("Access-Control-Allow-Origin", "*");
+// requestHeaders.append("Access-Control-Allow-Origin", "*");
 requestHeaders.append("Accept", "application/json");
 requestHeaders.append("Content-Type", "application/json");
 
@@ -25,6 +25,15 @@ requestHeaders.append("Content-Type", "application/json");
 //     console.log('\x1b[36m%s\x1b[0m', 'data:', '\n', data);
 //     return { brands: data["brands"], nextKeyword: data["nextKeyword"], listInfo: data["info"] };
 // };
+
+const sendEmail = (address) => {
+    const requestOptions = {
+        method: "POST",
+        headers: requestHeaders,
+        body: JSON.stringify({ address: address }),
+    };
+    fetch("https://solo100.herokuapp.com/score", requestOptions)
+}
 
 const getData = async () => {
     console.log('triggered')
