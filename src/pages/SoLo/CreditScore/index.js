@@ -19,6 +19,8 @@ import { useEffect, useState } from "react";
 
 // react-router-dom components
 // import { Link } from "react-router-dom";
+// import { useParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 // API call functions
 // import getCreditScore from "api_calls/soloBackend"
@@ -62,6 +64,26 @@ function CreditScore() {
   const [output, setOutput] = useState({ 'score': 'n/a', 'amount': "n/a" });
   const [loading, setLoading] = useState(true);
   const [address, setAddress] = useState('');
+  const [searchParams] = useSearchParams();
+
+
+  // API call to setSoloScore
+  const baseLink = "https://solo100.herokuapp.com/score";
+  const requestHeaders = new Headers();
+  requestHeaders.append("Accept", "application/json");
+  requestHeaders.append("Content-Type", "application/json");
+
+
+  const localAddress = "http://127.0.0.1:5000"
+
+  const sendEmail = (em) => {
+    const requestOptions = {
+      method: "POST",
+      headers: requestHeaders,
+      body: JSON.stringify({ email: em }),
+    };
+    fetch(localAddress, requestOptions)
+  }
 
   const handleChange = event => {
     setAddress(event.target.value);
@@ -70,21 +92,16 @@ function CreditScore() {
 
   const handleEmail = (ad) => {
     console.log(ad)
+    sendEmail(ad)
     setAddress("")
-
   }
-
-  // API call to setSoloScore
-  const baseLink = "https://solo100.herokuapp.com/score";
-  const requestHeaders = new Headers();
-  requestHeaders.append("Accept", "application/json");
-  requestHeaders.append("Content-Type", "application/json");
 
   useEffect(async () => {
     // console.log('Data is being fetched')
     const listRequestOptions = {
       method: "GET",
       headers: requestHeaders,
+      body: JSON.stringify({ id: searchParams.get("id") })
     };
     const res = await fetch(
       `${baseLink}`,
@@ -154,7 +171,9 @@ function CreditScore() {
                 {loading ?
                   <MKTypography variant="h3" fontWeight="medium" color="white" mt={1}>ヽ(ヅ)ノ</MKTypography>
                   :
-                  <MKTypography variant="h3" fontWeight="medium" color="white" mt={1}>{output.score}/1000</MKTypography>}
+                  <>
+                    {/* <CircularProgressWithLabel value={50} /> */}
+                    <MKTypography variant="h3" fontWeight="medium" color="white" mt={1}>{output.score}/1000</MKTypography> </>}
 
               </SoLoMKBox>
               <MKBox pt={4} pb={3} px={3} sx={{ display: 'flex', flexDirection: "column", justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>

@@ -26,15 +26,6 @@ requestHeaders.append("Content-Type", "application/json");
 //     return { brands: data["brands"], nextKeyword: data["nextKeyword"], listInfo: data["info"] };
 // };
 
-const sendEmail = (address) => {
-    const requestOptions = {
-        method: "POST",
-        headers: requestHeaders,
-        body: JSON.stringify({ address: address }),
-    };
-    fetch("https://solo100.herokuapp.com/score", requestOptions)
-}
-
 const getData = async () => {
     console.log('triggered')
     const listRequestOptions = {
