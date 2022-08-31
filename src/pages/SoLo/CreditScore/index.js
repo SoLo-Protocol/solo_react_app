@@ -33,6 +33,8 @@ import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
 // import MuiLink from "@mui/material/Link";
 
+
+
 // @mui icons
 // import FacebookIcon from "@mui/icons-material/Facebook";
 // import GitHubIcon from "@mui/icons-material/GitHub";
@@ -45,6 +47,7 @@ import SoLoMKBox from "components/SoLoMKBox";
 import MKTypography from "components/MKTypography";
 import MKInput from "components/MKInput";
 import MKButton from "components/MKButton";
+import MKProgress from "components/MKProgress";
 
 
 // Material Kit 2 React example components
@@ -57,6 +60,13 @@ import routes from "soloRoutes";
 // Images
 import bgImage from "assets/images/bg-sign-in-basic.jpeg";
 // import { Typography } from "@mui/material";
+
+
+// ----------------absolutely worst practice---------------------
+
+
+// ----------------absolutely worst practice---------------------
+
 
 function CreditScore() {
   // const [rememberMe, setRememberMe] = useState(false);
@@ -172,8 +182,10 @@ function CreditScore() {
                   <MKTypography variant="h3" fontWeight="medium" color="white" mt={1}>ヽ(ヅ)ノ</MKTypography>
                   :
                   <>
-                    {/* <CircularProgressWithLabel value={50} /> */}
-                    <MKTypography variant="h3" fontWeight="medium" color="white" mt={1}>{output.score}/1000</MKTypography> </>}
+                    <MKTypography pb={2} variant="h3" fontWeight="medium" color="white" mt={1}>{output.score}/1000</MKTypography>
+                    <MKProgress value={output.score / 10} color='success' />
+                  </>
+                }
 
               </SoLoMKBox>
               <MKBox pt={4} pb={3} px={3} sx={{ display: 'flex', flexDirection: "column", justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
@@ -214,3 +226,5 @@ function CreditScore() {
 }
 
 export default CreditScore;
+
+
