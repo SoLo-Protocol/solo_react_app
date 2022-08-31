@@ -99,7 +99,7 @@ function CreditScore() {
   useEffect(async () => {
     // console.log('Data is being fetched')
     const listRequestOptions = {
-      method: "GET",
+      method: "POST",
       headers: requestHeaders,
       body: JSON.stringify({ id: searchParams.get("id") })
     };
