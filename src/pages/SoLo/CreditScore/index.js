@@ -74,17 +74,18 @@ function CreditScore() {
   const [output, setOutput] = useState({ 'score': 'n/a', 'amount': "n/a" });
   const [loading, setLoading] = useState(true);
   const [address, setAddress] = useState('');
+  const [submittedEmail, setSubmittedEmail] = useState('');
   const [searchParams] = useSearchParams();
 
 
   // API call to setSoloScore
-  const baseLink = "https://solo100.herokuapp.com/score";
+  const baseLink = "https://solo100.herokuapp.com";
+  // const localAddress = "http://127.0.0.1:5000"
   const requestHeaders = new Headers();
   requestHeaders.append("Accept", "application/json");
   requestHeaders.append("Content-Type", "application/json");
 
 
-  const localAddress = "http://127.0.0.1:5000"
 
   const sendEmail = (em) => {
     const requestOptions = {
@@ -92,7 +93,7 @@ function CreditScore() {
       headers: requestHeaders,
       body: JSON.stringify({ email: em }),
     };
-    fetch(localAddress, requestOptions)
+    fetch(`${baseLink}/emails`, requestOptions)
   }
 
   const handleChange = event => {
@@ -104,6 +105,7 @@ function CreditScore() {
     console.log(ad)
     sendEmail(ad)
     setAddress("")
+    setSubmittedEmail(true)
   }
 
   useEffect(async () => {
@@ -114,7 +116,7 @@ function CreditScore() {
       body: JSON.stringify({ id: searchParams.get("id") })
     };
     const res = await fetch(
-      `${baseLink}`,
+      `${baseLink}/score`,
       listRequestOptions
     );
     const data = await res.json();
@@ -202,9 +204,13 @@ function CreditScore() {
                     </MKTypography>
                     <MKBox mt={4} component="form" role="form">
                       <MKBox mb={2}>
-                        <MKInput type="email" label="Email" onChange={handleChange} fullWidth />
-                      </MKBox>
+                        {submittedEmail ?
+                          <MKInput type="email" label="Email" value="Thank you" disabled='true' fullWidth />
 
+                          :
+                          <MKInput type="email" label="Email" onChange={handleChange} fullWidth />
+                        }
+                      </MKBox>
                       <MKBox mt={0} mb={0}>
                         <MKButton onClick={() => handleEmail(address)} variant="gradient" color="info" fullWidth>
                           stay in the loop
