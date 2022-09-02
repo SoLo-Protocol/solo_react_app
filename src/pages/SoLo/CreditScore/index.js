@@ -76,7 +76,7 @@ function CreditScore() {
   const [address, setAddress] = useState('');
   const [submittedEmail, setSubmittedEmail] = useState('');
   const [searchParams] = useSearchParams();
-
+  const numTrialTxn = "1068"
 
   // API call to setSoloScore
   const baseLink = "https://solo100.herokuapp.com";
@@ -202,6 +202,13 @@ function CreditScore() {
                     <MKTypography>
                       with SoLo
                     </MKTypography>
+                    {searchParams.get("id") === numTrialTxn ?
+                      <MKBox mt={2}>
+                        <MKButton href="https://www.soulloan.tech/selectbank" variant="gradient" color="success" fullWidth>
+                          Get your real score
+                        </MKButton>
+                      </MKBox>
+                      : <></>}
                     <MKBox mt={4} component="form" role="form">
                       <MKBox mb={2}>
                         {submittedEmail ?
